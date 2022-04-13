@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso PHP</title>
+    <title>Document</title>
 </head>
 <body>
-  
-  
+    
+    
     <?php 
     echo "---- aula 3 ----<br/>";
     $nome = "Rafael";
@@ -21,7 +21,6 @@
     $n1 = 3;
     $n2 = 2;
     $m = ($n1 + $n2) /2;
-
     echo "</br>A soma de $n1 e $n2 é igual a ". ($n1 + $n2);
     echo "</br>A subtração de $n1 e $n2 é igual a ". ($n1 - $n2);
     echo "</br>A miltiplicação de $n1 e $n2 é igual a ". ($n1 * $n2);
@@ -36,9 +35,9 @@
     echo "<br/> O valor absoluto de $v2 é " . abs($v2);
     echo "</br> A potenciação de $v1<sup>$v2</sup> é " .pow($v1, $v2);
     echo "<br/> A raíz de $v2 é ".sqrt($v2);
-    echo "<br/> O valor de $v2 arrendodado é " . round($v2);
-    echo "<br/> O valor de $v2 arrendodado para cima é " . ceil($v2);
-    echo "<br/> O valor de $v2 arrendodado para baixo é " . floor($v2);
+    echo "<br/> O valor de $v2 arredondado é " . round($v2);
+    echo "<br/> O valor de $v2 arredondado para cima é " . ceil($v2);
+    echo "<br/> O valor de $v2 arredondado para baixo é " . floor($v2);
     echo "</br> A parte inteira de $v2 é ".intval($v2);
     echo "</br> O valor de $v1 em moeda é R$".number_format($v1, 2, ",", ".");
     echo "</h2>";
@@ -71,6 +70,46 @@
     $$x = "def";
     echo "<br/>A variável x contém $x";
     echo "</br> A variável abc recebeu o valor ". $$x; #variáveis de variáveis ou variável de variante
+    echo "</br>";
+    
+    echo "</br>---- aula 7 ----</br>";
+    $n1 = $_GET["a"];
+    $n2 = $_GET["b"];
+    $tipo= $_GET["op"];
+    echo "<br/>Os valores passados foram $n1 e $n2";
+    echo "<br> PS:digite s para somar e m para multiplicar";
+    $r = ($tipo == "s") ? ($n1+$n2) : ($n1*$n2);
+    echo "</br> O resultado é $r.</br>";
+    
+    $a = 3;
+    $b = "3";
+    $r = ($a == $b) ? "Sim" : "Não"; //igualdade
+    echo "<br/> As variáveis são iguais? $r";
+
+    $c = 3;
+    $d = "3";
+    $r = ($c === $d) ? "Sim" : "Não"; //idêntico
+    echo "<br/> As variáveis são idênticas? $r</br>";
+
+    $nota1 = $_GET["n1"];
+    $nota2 = $_GET["n2"];
+    $med = ($nota1 + $nota2) / 2;
+    $status = ($med < 6) ? "Reprovado" : "Aprovado";
+    echo "<br/> O aluno com as notas $nota1 e $nota2 tem a média $med e está $status";
+
+    $nota3 = $_GET["n3"];
+    $nota4 = $_GET["n4"];
+    $med = ($nota3 + $nota4) / 2;
+    $status = ($med < 6) ? "Reprovado" : "Aprovado";
+    echo "<br/> O aluno com as notas $nota3 e $nota4 tem a média $med e está ". (($med < 6) ? "Reprovado" : "Aprovado</br>");
+
+    $ano = $_GET['an'];
+    $idade = date("Y") - $ano;
+    echo "</br></br> Quem nasceu em $ano tem a idade de $idade";
+    $tipo = ($idade >=18 && $idade <65)?"é OBRIGATÓRIO" : "NÃO OBRIGATÓRIO";
+    echo "<br/> E quem nasceu em $ano $tipo a votar";
+
+    
     ?>
 </body>
 </html>
