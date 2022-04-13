@@ -107,9 +107,89 @@
     $idade = date("Y") - $ano;
     echo "</br></br> Quem nasceu em $ano tem a idade de $idade";
     $tipo = ($idade >=18 && $idade <65)?"é OBRIGATÓRIO" : "NÃO OBRIGATÓRIO";
-    echo "<br/> E quem nasceu em $ano $tipo a votar";
+    echo "<br/> E quem nasceu em $ano $tipo a votar</br>";
 
-    
+        echo "</br>---- aula 8 ----<br/>";  
+    echo "<br/>";
     ?>
+    <form method="get" action="01valor.php">
+        valor: <input type="number" name="v"/>
+        <input type="submit" value="Calcular raíz"/>
+    </form>
+    
+    //Arquivo action 01
+        <?php 
+
+        $valor = $_GET["v"];
+        $rq = sqrt($valor);
+        echo "A raíz quadrada de $valor é ". number_format($rq,2);
+    ?>
+    <a href="curso.php">Voltar</a>
+    <br/>
+    <br/>
+
+    <form method="get" action="02idade.php">
+        Nome: <input type="text" name="nome"/></br>
+        Ano de nascimento: <input type="number" name="ano"/></br>
+        <fieldset><legend>Sexo</legend>
+            <input type="radio" name="sexo" id="masc" value="homem"/>
+            <label for="masc">Masculino</label><br/>
+            <input type="radio" name="sexo" id="fem" value="mulher"/>
+            <label for="fem">Feminino</label></br>
+        </fieldset></br>
+        <input type="submit" value="Enviar"/>
+    </form>
+    //Arquivo action 02
+        <?php
+    
+        $nome = isset($_GET["nome"])? $_GET["nome"]:"Não Informado";
+        $ano = isset($_GET["ano"])? $_GET["ano"]:"Não Informado";
+        $sexo = isset($_GET["sexo"])? $_GET["sexo"]:"Não Informado";
+        $idade = date("Y") - $ano;
+
+        echo "$nome tem $idade anos é $sexo";    
+    ?>
+    
+    <br/>
+    <br/>
+
+    <form method="get" action="03cores.php">
+        <label for="itxt">Texto: </label>
+        <input type="text" name="t" id="itxt"/></br>
+        <label for="itam">Tamanho</label>
+        <select name="tam" id="itam">
+            <option value="8pt">8</option>
+            <option value="10pt">10</option>
+            <option value="14pt" selected>14</option>
+            <option value="20pt">20</option>
+            <option value="40pt">40</option>
+        </select> </br>
+        <label for="icor">Cor: </label>
+        <input type="color" name="cor" id="icor"/> <br/>
+        <input type="submit" value="Gerar"/>  
+    </form>    
+    ?>
+    //arquivo action 03
+    <?php
+        $txt = isset($_GET["t"])?$_GET["t"]:"Texto Genérico";
+        $tam = isset($_GET["tam"])?$_GET["tam"]:"12pt";
+        $cor = isset($_GET["cor"])?$_GET["cor"]:"#000000";    
+    ?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso PHP</title>
+    <style>
+        span.texto{
+            font-size: <?php echo $tam; ?>;
+            color: <?php echo $cor; ?>;
+        }
+    </style>
+</head>
+<body>
+    <?php
+        echo "<span class=texto>$txt</span";
+    ?>
+    
 </body>
 </html>
