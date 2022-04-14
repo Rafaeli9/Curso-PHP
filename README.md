@@ -375,7 +375,86 @@
     </br>
     <a href="curso.php"> <button type="submit" value="Voltar">Voltar</button></a>
     
+    <h3>Aula 11</h3>
+    <form method="get" action="while.php">
+        <label>Início</label>
+        <input type="number" name="inicio"/>
+        <br/>
+        <label>Final</label>
+        <input type="number" name="final"/>
+        <br/>
+        <label>Incremento</label>
+        <select name="incremento">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select> 
+        <br/>
+        <input type="submit" value="Calcular"/>
+    </form>
+    <?php
+        $i = isset($_GET["inicio"])?$_GET["inicio"]:0;
+        $f = isset($_GET["final"])?$_GET["final"]:0;
+        $incr = isset($_GET["incremento"])?$_GET["incremento"]:1;
+
+        if($i >= $f){
+            while ($i >= $f){
+                echo "$i ";
+                $i -= $incr;
+            }
+        }
+        elseif($i <= $f){
+                while($i <= $f){
+                    echo "$i ";
+                    $i += $incr;
+            }
+        }   
+    ?>
     
+    <h3>Aula 12</h3>
+    <form method="get" action="fatorial.php">
+        Valor: <input type="number" name="val"/>
+        <input type="submit" value="Fatoriar"/>
+    </form>
+    <br/>
+    <br/>
+        <?php
+        $v = isset($_GET['val'])? $_GET['val']:1;
+        echo "<h1> Calculando o fatorial de $v </h1>";
+        $c = $v;
+        $fat = 1;
+        do {
+            $fat  = $fat * $c;
+            $c--;
+        } while($c >= 1);
+        echo "<h2> $v! = $fat";
+    ?>    
+    --------------------------------------------------
+    <form method="get" action="tabuada.php">
+       <label>Número:</label>
+       <select name="num">
+           <?php
+            $c = 1;
+            while($c<=10){
+                echo "<option>$c</option>";
+                $c++;
+            }           
+           ?>
+       </select>
+       <input type="submit" value="Calcular"/>
+    </form>
+        <?php
+        $n = isset($_GET["num"])? $_GET["num"]:1;
+        $c = 1;
+        do {
+            $tabu = $n * $c;
+            $c++;
+            echo "$n x $c = $tabu"."</br>";
+        }while($c <= 10);
+        
+    ?>
     
     
     
