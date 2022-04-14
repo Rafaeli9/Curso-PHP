@@ -246,6 +246,141 @@
     </br>
     <a href="curso.php"> <button type="submit" value="Voltar">Voltar</button></a>
     
+    //aula 10
+    <form method="get" action="switch.php">
+        Número: <input type="number" name="num"/></br>
+        <fieldset><legend>Operação</legend>
+        <input type="radio" name="oper" id="dobro" value="1" checked/>
+        <label for="dobro">Dobro</label>
+        <input type="radio" name="oper" id="cubo" value="2"/>
+        <label for="cubo">Cubo</label>
+        <input type="radio" name="oper" id="raiz" value=""/>
+        <label for="raiz">Raíz Quadrada</label>
+        </fieldset>
+        <input type="submit" value="Calcular"/>
+    </form>
+        <?php
+        $n = ($_GET["num"])?$_GET["num"]:0;
+        $o = ($_GET["oper"])?$_GET["oper"]:0;
+        switch ($o) {
+            case 1:
+                $r = $n * 2;
+                break;
+            case 2:
+                $r = $n ^ 3;
+                break;
+            case 3:
+                $r = sqrt($n,2);  // $n ^ 0.5 ou (1/2)
+        }
+        echo "<br/> O resultado da sua escolha foi $r";
+
+    ?>
+    </br>
+    <a href="curso.php"> <button type="submit" value="Voltar">Voltar</button></a>
+    ----------------------------------------------------------------------------
+    <form method="get" action="semana.php">
+        Dia da Semana: <input type="number" name="ds" required=""/></br>
+        <input type="submit" value="Anallisar"/>
+    </form>
+    <?php
+        $d = isset($_GET["ds"])?$_GET["ds"]:0;
+        switch ($d) {
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:    
+                echo "Levanta e vai estudar! :)";
+                break;
+            case 7:
+            case 8:
+                echo "Dia de descanso pequno gafanhoto! ;)";
+                break;
+            default:
+                echo "Dia da semana INVÁLIDO!";
+        }
+    ?>
+    </br>
+    <a href="curso.php"> <button type="submit" value="Voltar">Voltar</button></a>
+    ----------------------------------------------------------
+    <form method="get" action="estados.php">
+        <label> Estados: </label>
+        <select name="lista">
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PÁ">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+        <input type="submit" value="Verificar"/>
+    </form>
+        <?php
+        $e = isset($_GET['lista'])? $_GET['lista']:0;
+        switch ($e){
+            case "SP":
+            case "RJ":
+            case "MG":
+            case "ES":
+                $regiao = "REGIÃO SUDESTE";
+            break;
+            case "GO":
+            case "MT":
+            case "MS":
+            case "DF":
+                $regiao = "Região Centro-Oeste";
+            break;
+            case "PR":
+            case "SC":
+            case "RS":
+                $regiao = "Região Sul";
+            break;
+            break;
+            case "AC":
+            case "AM":
+            case "AP":
+            case "PA":
+            case "RR":
+            case "RO":
+            case "TO":
+                $regiao = "Região Norte";
+            break;
+            default:
+                $regiao = "Regiao Nordeste";
+        }
+        echo "Você mora na $regiao";
+    
+    ?>
+    </br>
+    <a href="curso.php"> <button type="submit" value="Voltar">Voltar</button></a>
+    
+    
+    
+    
+    
+    
+    
     
 </body>
 </html>
