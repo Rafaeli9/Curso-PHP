@@ -184,6 +184,68 @@
     <?php
         echo "<span class=texto>$txt</span";
     ?>
+    <form method="get" action="votar.php">
+        Ano de Nascimento:
+        <input type="number" placeholder="4 digitos" name="ano"/>
+        <input type="submit" value="Verificar"/>
+    </form>
+    
+    <?php 
+    echo "</br>---- aula 9 ----<br/>";  
+    
+    $a = isset($_GET["ano"])?$_GET["ano"]:1900;
+    $i = date("Y") - $a;
+    echo "Você nasceu em $a e tem $i anos.";
+
+    if($i >=18) {
+        $v = "<br/>Já pode votar<br/>";
+        $d = "Já pode dirigir<br/>";
+    }
+    else {
+        $v = "<br/>Não pode votar<br/>";
+        $d = "não pode dirigir<br/>";
+    }
+    echo "<br/>Com essa idade você $v e também $d.";
+
+    if($i < 16){
+        $tipoVoto = "Não vota!";
+    }
+    elseif (($i >= 16 && $i < 18) || ($i >65)){
+        $tipoVoto = "Voto Opcional!";
+    }
+    else {
+        $tipoVoto = "Voto OBRIGATÓRIO!";
+    }
+    echo "</br> Você esta com $i anos e $tipoVoto."
+    ?>
+    <a href="curso.php">Voltar</a>
+    
+     <form method="get" action="media.php">
+        Nota 1:
+        <input type="number" name="nota1"/><br/>
+        Nota 2:
+        <input type="number" name="nota2"/><br/>
+        <input type="submit" value="Calcular Média"/>
+    </form>
+    
+    <?php
+        $nota1 = isset($_GET["nota1"])? $_GET["nota1"]: "Infome uma nota";
+        $nota2 = isset($_GET["nota2"])? $_GET["nota2"]: "Infome uma nota";
+        $media = ($nota1 + $nota2) / 2;
+
+        if($media == 0 || $media <5){
+            echo "O aluno com as notas $nota1 e $nota2 tem a média $media e esta REPROVADO!";
+        }
+        elseif($media <7){
+            echo "O aluno com as notas $nota1 e $nota2 tem a média $media e esta RECUPERAÇÃO!";
+        }
+        else{
+            echo "O aluno com as notas $nota1 e $nota2 tem a média $media e esta APROVADO!";
+        }
+    ?>
+    </br>
+    <a href="curso.php"> <button type="submit" value="Voltar">Voltar</button></a>
+    
     
 </body>
 </html>
