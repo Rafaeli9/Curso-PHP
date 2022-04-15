@@ -456,6 +456,35 @@
         
     ?>
     
+    <h2>Aula 13</h2>
+    
+    <form method="get" action="primo.php">
+      <label id="num">Numero:</label>
+      <input type="number" name="num" id="num"  value="1"/>
+      <input class="botao" type="submit" value="num" />
+    </form>
+    <?php   
+            $valor = isset($_GET["num"])?$_GET["num"]:0;
+            $c = 0;
+            echo "Analisando o número $valor<br/>";
+           for($i=1; $i<=$valor; $i++){
+           if($valor % $i ==0){            
+            $c++;
+            $qtd .="," . $i; 
+           }
+        }
+        if($c == 2 && $c>0){
+            echo "$valor é PRIMO!";
+        }
+        elseif($c>2){
+            echo "$valor NÃO é PRIMO!";
+        }
+        echo "<br/> O total de múltiplos de $ valor é $c";
+        echo "<br/>Valores multiplos de $valor são $qtd ";
+           
+           
+    ?>
+    
     
     
     
