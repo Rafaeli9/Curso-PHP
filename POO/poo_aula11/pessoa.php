@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CURSO POO</title>
+</head>
+<body>
+  <?php
+  abstract class Pessoa {
+      private $nome;
+      private $idade;
+      private $sexo;
+
+      public function fazerAniversario() {
+          $this->idade ++; 
+      }
+      public function getNome()
+      {
+            return $this->nome;
+      }
+      public function setNome($nome)
+      {
+            $this->nome = $nome;
+      }
+      public function getIdade()
+      {
+            return $this->idade;
+      }
+      public function setIdade($idade)
+      {
+            $this->idade = $idade;
+
+      }
+      public function getSexo()
+      {
+            return $this->sexo;
+      }
+      public function setSexo($sexo)
+      {
+            $this->sexo = $sexo;
+
+      }
+  }  
+  ?>
+</body>
+</html>
